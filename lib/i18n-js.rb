@@ -81,7 +81,7 @@ module SimplesIdeias
       File.open(file, "w+") do |f|
         f << %(var I18n = I18n || {};\n)
         f << %(I18n.translations = );
-        f << sorted_hash(translations).to_json
+        f << ActiveSupport::JSON.encode(sorted_hash(translations))
         f << %(;)
       end
     end
